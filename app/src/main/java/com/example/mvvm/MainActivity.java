@@ -1,7 +1,13 @@
 package com.example.mvvm;
 
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+
+import androidx.appcompat.widget.Toolbar;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -9,10 +15,12 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
 
+import com.example.mvvm.adapters.PostAdapter;
 import com.example.mvvm.models.PostModel;
 import com.example.mvvm.retrofit.ApiInterface;
 import com.example.mvvm.retrofit.RetroClient;
 import com.example.mvvm.viewmodels.PostViewModel;
+import com.google.android.material.navigation.NavigationView;
 
 import org.w3c.dom.Text;
 
@@ -22,31 +30,56 @@ import retrofit2.Call;
 
 public class MainActivity extends AppCompatActivity {
 
-    //TextView mytext;
-    PostViewModel postViewModel = new PostViewModel();
+    private List<PostModel> postModelList;
+    private PostAdapter adapter;
+    private PostViewModel viewModel;
+
+    DrawerLayout drawerLayout;
+    NavigationView navigationView;
+    Toolbar myToolBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-       // mytext = findViewById(R.id.mytext);
+
+        // implementing functionalities for side menu
+        drawerLayout = findViewById(R.id.drawerlayout);
+        navigationView = findViewById(R.id.navigationview);
+        myToolBar = findViewById(R.id.myToolBar);
+
+        //toolbar
+        setSupportActionBar(myToolBar);
+
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout,myToolBar,R.string.navigation_open,R.string.navigation_close);
+
+        drawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
+
+        RecyclerView recyclerView = findViewById(R.id.recyclerView);
+
+        //set linear layout manager to recycler view
+        LinearLayoutManager layoutManager = new GridLayoutManager(this, 1);
+        recyclerView.setLayoutManager(layoutManager);
+
+        adapter = new PostAdapter(this,postModelList);
+        recyclerView.setAdapter(adapter);
 
 
-        postViewModel.getPostData().observe(this, new Observer<List<PostModel>>() {
+        viewModel = new ViewModelProvider(this).get(PostViewModel.class);
+        viewModel.getPostData().observe(this, new Observer<List<PostModel>>() {
             @Override
             public void onChanged(List<PostModel> postModels) {
-
-                    for (int i=0; i<postModels.size(); i++){
-                        //title.setText("Title: "+ postModels.get(i).getTitle());
-                        //body.setText("Body: "+ postModels.get(i).getBody());
-                        Log.d("PostData", "Title: "+ postModels.get(i).getTitle());
-                        Log.d("PostData", "Body:" + postModels.get(i).getBody());
-                    }
-
-
+                //Whenever change is observed in data
+                if (postModels != null){
+                    postModelList = postModels;
+                    adapter.setPostModel(postModels);
+                }
 
             }
         });
+
+        viewModel.makeApiCall();
 
     }
 

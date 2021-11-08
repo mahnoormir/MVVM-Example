@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+
+        <item android:id="@+id/home_menu"
+            android:icon="@drawable/ic_baseline_home_24"
+            android:title="Home">
+
+        </item>
+
+        <item android:id="@+id/dashboard_menu"
+            android:icon="@drawable/ic_baseline_dashboard_24"
+            android:title="Dashboard">
+
+        </item>
+
+        <item android:id="@+id/support_menu"
+            android:icon="@drawable/ic_baseline_contact_support_24"
+            android:title="Support">
+
+        </item>
+
+    </group>
+
+    <group android:checkableBehavior="single">
+
+        <item android:title="Authentication">
+
+            <menu>
+
+                <item android:id="@+id/login"
+                    android:icon="@drawable/ic_baseline_login_24"
+                    android:title="Log in">
+
+                </item>
+
+                <item android:id="@+id/logout"
+                    android:icon="@drawable/ic_baseline_computer_24"
+                    android:title="Log out">
+
+                </item>
+
+            </menu>
+        </item>
+
+    </group>
+
+</menu>
