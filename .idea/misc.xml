@@ -4,13 +4,18 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/mahnoor.mir/AndroidStudioProjects/MVVM2/app/src/main/res/drawable/ic_baseline_menu_24.xml" value="0.1" />
+        <entry key="..\:/Users/mahnoor.mir/AndroidStudioProjects/MVVM2/app/src/main/res/layout/activity_login.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/mahnoor.mir/AndroidStudioProjects/MVVM2/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/mahnoor.mir/AndroidStudioProjects/MVVM2/app/src/main/res/layout/appbar.xml" value="0.1" />
+        <entry key="..\:/Users/mahnoor.mir/AndroidStudioProjects/MVVM2/app/src/main/res/layout/fragment_home.xml" value="0.11499493414387031" />
+        <entry key="..\:/Users/mahnoor.mir/AndroidStudioProjects/MVVM2/app/src/main/res/layout/fragment_login.xml" value="0.2" />
+        <entry key="..\:/Users/mahnoor.mir/AndroidStudioProjects/MVVM2/app/src/main/res/layout/fragment_logout.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/mahnoor.mir/AndroidStudioProjects/MVVM2/app/src/main/res/layout/header.xml" value="0.1" />
         <entry key="..\:/Users/mahnoor.mir/AndroidStudioProjects/MVVM2/app/src/main/res/layout/recycler_row.xml" value="0.1" />
         <entry key="..\:/Users/mahnoor.mir/AndroidStudioProjects/MVVM2/app/src/main/res/layout/row_layout.xml" value="0.20364583333333333" />
         <entry key="..\:/Users/mahnoor.mir/AndroidStudioProjects/MVVM2/app/src/main/res/layout/sidemenu.xml" value="0.1" />
-        <entry key="..\:/Users/mahnoor.mir/AndroidStudioProjects/MVVM2/app/src/main/res/menu/sidemenu.xml" value="0.1" />
+        <entry key="..\:/Users/mahnoor.mir/AndroidStudioProjects/MVVM2/app/src/main/res/layout/toolbar.xml" value="0.1" />
+        <entry key="..\:/Users/mahnoor.mir/AndroidStudioProjects/MVVM2/app/src/main/res/menu/sidemenu.xml" value="0.264" />
       </map>
     </option>
   </component>
