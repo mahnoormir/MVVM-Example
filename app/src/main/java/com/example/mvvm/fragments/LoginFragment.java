@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.mvvm.Google_Signout;
 import com.example.mvvm.R;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
@@ -24,16 +25,16 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class LoginFragment extends Fragment {
 
     GoogleSignInClient mGoogleSignInClient;
-    Button sign_in_button_google;
+    SignInButton sign_in_button_google;
     LoginButton sign_in_button_fb;
     private CallbackManager c;
     private static int RC_SIGN_IN=100;
@@ -98,7 +99,8 @@ public class LoginFragment extends Fragment {
 
         return view;
 
-
+//intent done for the write of author
+        //no indentation required
     }
 
     //function for sign in
@@ -124,18 +126,20 @@ public class LoginFragment extends Fragment {
         try {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
             //getting profile information
-            // can be used for diplay once signed in successfully
+            // can be used for display once signed in successfully
             GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(getActivity());
-            if (acct != null) {
-                String personName = acct.getDisplayName();
-                String personGivenName = acct.getGivenName();
-                String personFamilyName = acct.getFamilyName();
-                String personEmail = acct.getEmail();
-                String personId = acct.getId();
-                Uri personPhoto = acct.getPhotoUrl();
-            }
+//            if (acct != null) {
+//                String personName = acct.getDisplayName();
+//                String personGivenName = acct.getGivenName();
+//                String personFamilyName = acct.getFamilyName();
+//                String personEmail = acct.getEmail();
+//                String personId = acct.getId();
+//                Uri personPhoto = acct.getPhotoUrl();
+//            }
 
-            Toast.makeText(getContext(), "User Signed In ", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(getActivity(), Google_Signout.class));
+
+            Toast.makeText(getContext(), "Signed In ", Toast.LENGTH_SHORT).show();
             
         } catch (ApiException e) {
             Log.d("message",e.toString());

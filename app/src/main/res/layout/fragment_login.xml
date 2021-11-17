@@ -13,21 +13,17 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:padding="30dp"
-        android:background="@color/browser_actions_bg_grey"
+        android:background="@color/teal_200"
 
         >
 
-        <Button
+        <com.google.android.gms.common.SignInButton
             android:id="@+id/sign_in_button_google"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:layout_marginBottom="15dp"
-            android:background="@color/teal_200"
-            android:text="Sign in with Google">
-
-        </Button>
+            android:layout_marginBottom="15dp" />
 
 
         <com.facebook.login.widget.LoginButton
